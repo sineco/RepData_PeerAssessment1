@@ -1,13 +1,9 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 
 ## Loading and preprocessing the data
-```{r}
+
+```r
 tf <- unzip("./activity.zip")
 activity_data <- read.csv(tf)
 activity_data$date<-as.Date(activity_data$date)
@@ -15,11 +11,10 @@ activity_data$date<-as.Date(activity_data$date)
 
 
 ## What is mean total number of steps taken per day?
-```{r, echo= TRUE, results='hide', message=FALSE, warning=FALSE}
 
-```
 
-```{r, message=FALSE, warning=FALSE}
+
+```r
 library(dplyr)
 library(ggplot2)
 total_steps_per_day <- activity_data %>% 
@@ -28,14 +23,16 @@ total_steps_per_day <- activity_data %>%
 qplot(number_steps, data = total_steps_per_day, geom="histogram", binwidth=600)
 ```
 
-```{r, echo=TRUE}
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
+
+
+```r
 mean_steps_per_day <- mean(total_steps_per_day$number_steps)
 median_steps_per_day <- median(total_steps_per_day$number_steps)
-
 ```
 
-The mean of steps taken per day is `r mean_steps_per_day`. The median of steps 
-taken perday is `r median_steps_per_day`.
+The mean of steps taken per day is 9354.2295082. The median of steps 
+taken perday is 10395.
 
 
 ## What is the average daily activity pattern?
