@@ -93,6 +93,9 @@ hist(total_steps_per_day_interpolated$number_steps, xlab = "number of steps",
 mean_steps_per_day_interpolated <- mean(total_steps_per_day_interpolated$number_steps)
 median_steps_per_day_interpolated <- median(total_steps_per_day_interpolated$number_steps)
 ```
+The strategy used to fill the missing values was to replace the missing values 
+with the rounded number of average steps of matching intervals of other days 
+that data was collected.
 
 The average steps taken per day after filling the missing values is 
 9354.23, and the median of steps taken per day after filling the 
